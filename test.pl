@@ -1,0 +1,10 @@
+use 5.20.0;
+use WebTravel;
+use WebTravel::Helper::Default;
+my $a=WebTravel->new;
+$a->plugin('Default');
+$a->helper(users => sub { state $users = WebTravel::Helper::Default->new });
+say $a->users->check('joel','las3rs');
+$a->start;
+#$a->log->path('c:\\a.txt');
+#$a->log->info('FYI: it happened again');
